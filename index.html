@@ -1,62 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Be Mine? 💖</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-   <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Flamingo ❤️</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif, Arial;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffe6ea 0%, #ffc2cd 100%);
+      padding: 20px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.96);
+      width: 100%;
+      max-width: 420px;
+      padding: 25px;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      text-align: center;
+    }
+    .profile-img {
+      width: 170px;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #ff4d6d;
+      box-shadow: 0 6px 16px rgba(255, 77, 109, 0.25);
+      margin-bottom: 16px;
+    }
+    h1 {
+      color: #ff3366;
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+    p {
+      color: #333;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .reasons-box {
+      text-align: left;
+      background: #fff0f3;
+      padding: 16px;
+      border-radius: 14px;
+      margin: 16px 0;
+      font-size: 14.5px;
+      color: #333;
+      border-left: 4px solid #ff4d6d;
+    }
+    .reasons-box li {
+      margin-bottom: 10px;
+      list-style-type: none;
+      line-height: 1.5;
+    }
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+      position: relative;
+    }
+    button {
+      padding: 10px 24px;
+      border: none;
+      border-radius: 25px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-yes {
+      background: #ff4d6d;
+      color: white;
+    }
+    .btn-no {
+      background: #adb5bd;
+      color: white;
+      position: relative;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div id="proposal-1" class="proposal-screen">
-            <div id="Sowrov1" class="sticker"></div>
-            <h1>Hey <span id="JSOrganization-placeholder"></span>! 💖</h1>
-            <p> Hey Flamingo I don't Know kab tum muje achi lgne lgi but jo mai feel krta hu its real for u 🩷 and I don't know i am good or not for u but i am try my best </p>
-            <div class="btn">
-                <a href="#" onclick="showProposal('proposal-yes')">💖 Yes</a>
-                <a href="#" onclick="showProposal('proposal-2')">💔 No</a>
-            </div>
-        </div>
 
-        <div id="proposal-2" class="proposal-screen">
-            <div id="Sowrov2" class="sticker"></div>
-            <h1>Are you sure? 🥺</h1>
-            <p> if you feel anytthing uncomfortable you can take some more time so u can take !</p>
-            <div class="btn">
-                <a href="#" onclick="showProposal('proposal-yes')">🥰 Yes</a>
-                <a href="#" onclick="showProposal('proposal-3')">😢 No</a>
-            </div>
-        </div>
+  <!-- Screen 1: Pehla Page Photo aur Proposal ke sath -->
+  <div class="card" id="screen1">
+    <img src="IMG-20261101-WA0000.jpg" alt="Garima" class="profile-img">
 
-        <div id="proposal-3" class="proposal-screen">
-            <div id="Sowrov3" class="sticker"></div>
-            <h1>My heart is breaking... 💔</h1>
-            <p> some past trauma and difficult to forget but we can try to forget !</p>
-            <div class="btn">
-                <a href="#" onclick="showProposal('proposal-yes')">😍 Yes</a>
-                <a href="#" onclick="showProposal('proposal-4')">😭 No</a>
-            </div>
-        </div>
+    <h1 id="greeting">Hey Garima ❤️</h1>
+    
+    <p>
+      Garima, this is for you. I don't know kab tum mujhe pasand aane lagi... I think tumhari harkatein mujhe achi lagne lagi. But ab jo mai feel karta hu, it's genuine and real 💖
+    </p>
 
-        <div id="proposal-4" class="proposal-screen">
-            <div id="Sowrov4" class="sticker"></div>
-            <h1> still dispute... 😭</h1>
-            <p> still your decision is no so i respect you decision!</p>
-            <div class="btn">
-                <a href="#" onclick="showProposal('proposal-yes')">❤️ Yes</a>
-                <a href="#" id="move-random">💔 No</a>
-            </div>
-        </div>
+    <p style="font-weight: bold; color: #ff3366; font-size: 16px;">
+      Will you be my girlfriend? 💍✨
+    </p>
 
-        <div id="proposal-yes" class="proposal-screen">
-            <div id="Sowrov5" class="sticker"></div>
-            <h1>You said YES! 🥰</h1>
-            <p>I love you, <span id="JSOrganization-placeholder-5"></span>. If u said yes so i will make sure this decision is best decisions and I don't know about future but we can manage together and collect more and more memories! 💞</p>
-        </div>
+    <div class="btn-group">
+      <button class="btn-yes" onclick="handleYes()">Yes! 💖</button>
+      <button class="btn-no" id="noBtn" onmouseover="dodgeNo()" onclick="dodgeNo()">No 🙈</button>
+    </div>
+  </div>
+
+  <!-- Screen 2: Yes par click karte hi ye screen khulegi -->
+  <div class="card hidden" id="screen2">
+    <h1>Yaaay! She Said YES! 🥰💍</h1>
+    
+    <div class="reasons-box">
+      <h3 style="color: #ff3366; margin-bottom: 12px;">Here are some reasons why I love you: ✨</h3>
+      <ul>
+        <li>✨ <b>Tumhari Smile:</b> Jab tum hasti ho to sach me poora din achha ban jata hai.</li>
+        <li>✨ <b>Tumhari Harkatein:</b> Thodi pagal, thodi cute jo sirf mujhe pasand hain.</li>
+        <li>✨ <b>The Way You Are:</b> Ekdum simple, genuine aur caring nature.</li>
+        <li>✨ <b>Together:</b> We don't know future kaisa hoga, but I promise we will make the best memories and make this bond last forever! ❤️</li>
+      </ul>
     </div>
 
-    <script src="script.js"></script>
+    <p style="font-weight: bold; color: #ff3366;">
+      Thank you meri life me aane ke liye! Hamesha sath rahenge 🌸💕
+    </p>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const nameParam = params.get('name');
+    if (nameParam) {
+      document.getElementById('greeting').innerText = `Hey ${nameParam} ❤️`;
+    }
+
+    function handleYes() {
+      document.getElementById('screen1').classList.add('hidden');
+      document.getElementById('screen2').classList.remove('hidden');
+    }
+
+    function dodgeNo() {
+      const btn = document.getElementById('noBtn');
+      const randomX = Math.floor(Math.random() * 160) - 80;
+      const randomY = Math.floor(Math.random() * 160) - 80;
+      btn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    }
+  </script>
 </body>
 </html>
