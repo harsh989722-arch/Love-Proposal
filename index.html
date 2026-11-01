@@ -1,211 +1,275 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For Flamingo ❤️</title>
+  <title>For My Flamingo ❤️</title>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Poppins', sans-serif, Arial;
+      font-family: 'Poppins', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
     body {
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #ffe6ea 0%, #ffc2cd 100%);
-      padding: 20px 15px;
-    }
-    .card {
-      background: rgba(255, 255, 255, 0.96);
-      width: 100%;
-      max-width: 440px;
-      padding: 25px 20px;
-      border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-      text-align: center;
-    }
-    .profile-img {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid #ff4d6d;
-      box-shadow: 0 6px 16px rgba(255, 77, 109, 0.25);
-      margin-bottom: 16px;
-    }
-    h1 {
-      color: #ff3366;
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-    p {
-      color: #333;
-      font-size: 15px;
-      line-height: 1.6;
-      margin-bottom: 14px;
+      background: linear-gradient(135deg, #ffd1dc 0%, #ff9ebb 50%, #ff6b8b 100%);
+      padding: 16px;
+      overflow-x: hidden;
+      position: relative;
     }
     
-    /* Photo Gallery Styling */
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin: 20px 0;
+    /* Floating background hearts */
+    .bg-heart {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      z-index: 1;
+      pointer-events: none;
     }
-    .polaroid {
-      background: #ffffff;
-      padding: 8px 8px 12px 8px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transform: rotate(-2deg);
-      transition: transform 0.3s ease;
-    }
-    .polaroid:nth-child(even) {
-      transform: rotate(2deg);
-    }
-    .polaroid:hover {
-      transform: scale(1.04) rotate(0deg);
-    }
-    .polaroid img {
-      width: 100%;
-      height: 130px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-    .polaroid span {
-      display: block;
-      font-size: 11.5px;
-      font-weight: 600;
-      color: #ff4d6d;
-      margin-top: 6px;
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
+      50% { opacity: 0.8; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
     }
 
-    .reasons-box {
-      text-align: left;
-      background: #fff0f3;
-      padding: 16px;
-      border-radius: 14px;
-      margin: 16px 0;
-      font-size: 14.5px;
-      color: #333;
-      border-left: 4px solid #ff4d6d;
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      width: 100%;
+      max-width: 400px;
+      padding: 26px 22px;
+      border-radius: 28px;
+      box-shadow: 0 16px 40px rgba(219, 39, 99, 0.25);
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    .reasons-box li {
-      margin-bottom: 10px;
-      list-style-type: none;
-      line-height: 1.5;
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
     }
+
+    .photo-wrapper {
+      position: relative;
+      width: 210px;
+      height: 210px;
+      margin: 0 auto 18px;
+    }
+    .photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 4px solid #fff;
+      box-shadow: 0 8px 24px rgba(255, 77, 109, 0.3);
+    }
+    .badge {
+      position: absolute;
+      bottom: -10px;
+      right: -5px;
+      background: #ff3366;
+      color: white;
+      font-size: 13px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    h2 {
+      color: #ff2a5f;
+      font-size: 21px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    p {
+      color: #444;
+      font-size: 15px;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .step-counter {
+      font-size: 12px;
+      font-weight: 600;
+      color: #ff6b8b;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .btn-next {
+      background: linear-gradient(45deg, #ff4d6d, #ff2a5f);
+      color: white;
+      border: none;
+      padding: 12px 32px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(255, 42, 95, 0.35);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-next:active {
+      transform: scale(0.96);
+    }
+
     .btn-group {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      margin-top: 15px;
+      gap: 16px;
+      margin-top: 20px;
       position: relative;
-    }
-    button {
-      padding: 10px 24px;
-      border: none;
-      border-radius: 25px;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
     }
     .btn-yes {
-      background: #ff4d6d;
+      background: linear-gradient(45deg, #ff2a5f, #e0004d);
       color: white;
+      border: none;
+      padding: 13px 30px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(224, 0, 77, 0.4);
     }
     .btn-no {
-      background: #adb5bd;
-      color: white;
+      background: #ced4da;
+      color: #495057;
+      border: none;
+      padding: 13px 26px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
       position: relative;
+      transition: transform 0.15s ease;
     }
+
     .hidden {
-      display: none;
+      display: none !important;
+    }
+
+    .celebration-box {
+      background: #fff0f3;
+      padding: 16px;
+      border-radius: 16px;
+      margin-top: 15px;
+      border-left: 4px solid #ff2a5f;
+      text-align: left;
+      font-size: 14.5px;
+      color: #333;
     }
   </style>
 </head>
 <body>
 
-  <!-- Screen 1: Pehla Page Photo aur Proposal Question ke sath -->
-  <div class="card" id="screen1">
-    <img src="IMG-20261101-WA0000.jpg" alt="Garima" class="profile-img">
+  <!-- Floating Hearts Background -->
+  <div class="bg-heart" style="left: 10%; animation-delay: 0s;">💖</div>
+  <div class="bg-heart" style="left: 30%; animation-delay: 2s;">🌸</div>
+  <div class="bg-heart" style="left: 60%; animation-delay: 4s;">✨</div>
+  <div class="bg-heart" style="left: 85%; animation-delay: 1s;">💕</div>
 
-    <h1 id="greeting">Hey Garima ❤️</h1>
-    
+  <!-- PAGE 1: KAB SHURU HUA -->
+  <div class="card" id="page1">
+    <div class="step-counter">Part 1 of 4</div>
+    <div class="photo-wrapper">
+      <img src="IMG-20261101-WA0000.jpg" alt="Garima">
+      <span class="badge">Day 1 vibe ✨</span>
+    </div>
+    <h2>Hey Garima ❤️</h2>
     <p>
-      Garima, this is for you. I don't know kab tum mujhe pasand aane lagi... I think tumhari harkatein mujhe achi lagne lagi. Your way of taking sab kuch btana tumhara bolna sab muje acha lagta hai it's genuine and real 💖
+      Mujhe sach me nahi pata kab aur kaise, par tum dheere-dheere mere liye itni special ban gayi. Tumhari choti-choti baatein kab itni pyari lagne lagi pata hi nahi chala...
     </p>
+    <button class="btn-next" onclick="goToPage(2)">Aage suno... 💖</button>
+  </div>
 
-    <p style="font-weight: bold; color: #ff3366; font-size: 16px;">
-      Will you be my girlfriend? 💍✨
+  <!-- PAGE 2: TUMHARI HARKATEIN -->
+  <div class="card hidden" id="page2">
+    <div class="step-counter">Part 2 of 4</div>
+    <div class="photo-wrapper">
+      <img src="IMG-20261101-WA0001.jpg" alt="Garima">
+      <span class="badge">That Smile 🌸</span>
+    </div>
+    <h2>Tumhari Pagalpanti 🥰</h2>
+    <p>
+      Jab tum hasti ho na, to mera poora mood ek second me theek ho jata hai. Tumhari wo cute harkatein aur tumhara innocent andaaz—sach batau to mujhe tumhare jaisa koi nahi laga!
     </p>
+    <button class="btn-next" onclick="goToPage(3)">Ek baat aur... ✨</button>
+  </div>
 
+  <!-- PAGE 3: DIL KI REAL FEELING & MEMORIES -->
+  <div class="card hidden" id="page3">
+    <div class="step-counter">Part 3 of 4</div>
+    <div class="photo-wrapper">
+      <img src="IMG-20261101-WA0002.jpg" alt="Garima">
+      <span class="badge">Pure Genuine 🔒</span>
+    </div>
+    <h2>It's 100% Real 💖</h2>
+    <p>
+      Hume nahi pata future kaisa hoga, but I know we can try to make the best decisions together. Thoda dramatic lag raha hoga, but bina kisi dikhawe ke bas itna chahta hu ki hum saath me bohot saari achhi memories banayein, photos lein, aur dono taraf se is bond ko hamesha ke liye last forever banayein! 🌸✨
+    </p>
+    <button class="btn-next" onclick="goToPage(4)">Now the most important thing... 🙈</button>
+  </div>
+
+  <!-- PAGE 4: THE GRAND PROPOSAL -->
+  <div class="card hidden" id="page4">
+    <div class="step-counter">Final Step 💍</div>
+    <div class="photo-wrapper">
+      <img src="IMG-20261101-WA0003.jpg" alt="Garima">
+      <span class="badge">Forever? 💖</span>
+    </div>
+    <h2>Only One Question... 🌹</h2>
+    <p style="font-weight: 600; font-size: 16px; color: #ff2a5f;">
+      Will you officially hold my hand, make me the happiest person and be my girlfriend? 💍✨
+    </p>
     <div class="btn-group">
-      <button class="btn-yes" onclick="handleYes()">Yes! 💖</button>
-      <button class="btn-no" id="noBtn" onmouseover="dodgeNo()" onclick="dodgeNo()">No 🙈</button>
+      <button class="btn-yes" onclick="showCelebration()">YES! 💖</button>
+      <button class="btn-no" id="noBtn" onmouseover="dodgeNo()" onclick="dodgeNo()">No 🥺</button>
     </div>
   </div>
 
-  <!-- Screen 2: Yes dabane ke baad Gallery aur Reasons khulenge -->
-  <div class="card hidden" id="screen2">
-    <h1>Yaaay! She Said YES! 🥰💍</h1>
-    
-    <!-- Photo Collage -->
-    <div class="photo-grid">
-      <div class="polaroid">
-        <img src="IMG-20261101-WA0001.jpg" alt="Memory 1">
-        <span>Cutest Smile ✨</span>
-      </div>
-      <div class="polaroid">
-        <img src="IMG-20261101-WA0002.jpg" alt="Memory 2">
-        <span>My Favorite 🌸</span>
-      </div>
-      <div class="polaroid">
-        <img src="IMG-20261101-WA0003.jpg" alt="Memory 3">
-        <span>Pure Happiness 💖</span>
-      </div>
-      <div class="polaroid">
-        <img src="IMG-20261101-WA0005.jpg" alt="Memory 4">
-        <span>Forever Kind of Love 💍</span>
-      </div>
+  <!-- FINAL CELEBRATION SCREEN: YES DABANE KE BAAD -->
+  <div class="card hidden" id="pageSuccess">
+    <div class="photo-wrapper">
+      <img src="IMG-20261101-WA0005.jpg" alt="Us">
+      <span class="badge">She Said Yes! 💍</span>
     </div>
-
-    <div class="reasons-box">
-      <h3 style="color: #ff3366; margin-bottom: 12px;">Reasons why I love you: ✨</h3>
-      <ul>
-        <li>✨ <b>Tumhari Smile:</b> Jab tum hasti ho to sach me poora din achha ban jata hai.</li>
-        <li>✨ <b>Tumhari Harkatein:</b> Thodi pagal, thodi cute jo sirf mujhe pasand hain.</li>
-        <li>✨ <b>The Way You Are:</b> Ekdum simple, genuine aur caring nature.</li>
-        <li>✨ <b>Together:</b> We don't know future kaisa hoga, but I promise we will make the best memories and make this bond last forever! ❤️</li>
-      </ul>
+    <h2>Best Decision Ever! 🥰🎉</h2>
+    <p>Thank you meri life me aane ke liye aur use itna khoobsurat banane ke liye! ❤️</p>
+    <div class="celebration-box">
+      <b>My Promise to you:</b>
+      <p style="margin: 6px 0 0; font-size: 14px;">
+        Hamesha tumhara sath dunga, tumhari saari faltu baatein sununga aur jab bhi tum udaas hogi hasane ki poori koshish karunga. Love you so much Flamingo! 🌸💖
+      </p>
     </div>
-
-    <p style="font-weight: bold; color: #ff3366;">
-      Thank you for Accept My Proposal! We will try own best 🌸💕
-    </p>
   </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const nameParam = params.get('name');
-    if (nameParam) {
-      document.getElementById('greeting').innerText = `Hey ${nameParam} ❤️`;
+    function goToPage(pageNum) {
+      document.querySelectorAll('.card').forEach(c => c.classList.add('hidden'));
+      document.getElementById('page' + pageNum).classList.remove('hidden');
+      window.scrollTo(0, 0);
     }
 
-    function handleYes() {
-      document.getElementById('screen1').classList.add('hidden');
-      document.getElementById('screen2').classList.remove('hidden');
+    function showCelebration() {
+      document.querySelectorAll('.card').forEach(c => c.classList.add('hidden'));
+      document.getElementById('pageSuccess').classList.remove('hidden');
+      window.scrollTo(0, 0);
     }
 
     function dodgeNo() {
       const btn = document.getElementById('noBtn');
       const randomX = Math.floor(Math.random() * 160) - 80;
-      const randomY = Math.floor(Math.random() * 160) - 80;
+      const randomY = Math.floor(Math.random() * 140) - 70;
       btn.style.transform = `translate(${randomX}px, ${randomY}px)`;
     }
   </script>
